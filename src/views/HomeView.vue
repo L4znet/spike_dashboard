@@ -222,7 +222,7 @@ const filteredProducts = ref(products.value)
 
 const search = ref("")
 
-const checkedItems: ref<number[]> = ref([])
+const checkedItems = ref<number[]>([])
 
 /**
  * Display the status based on the status provided
@@ -392,7 +392,9 @@ const isChecked = (id: number) => {
 const detectKeyboardShortcut = (event: KeyboardEvent) => {
      if ((event.ctrlKey && event.key === "k") || (event.metaKey && event.key === "k")) {
           const searchInputElement = document.getElementById("search_object")
-          searchInputElement.focus()
+          if (searchInputElement !== null) {
+               searchInputElement.focus()
+          }
      }
 }
 
