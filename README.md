@@ -1,33 +1,23 @@
-# dashboard
+# Spike Dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+Le challenge Dashboard CRM de Spike Challenge
 
-## Recommended IDE Setup
+## Quelques points notables
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Données dynamiques
 
-## Type Support for `.vue` Imports in TS
+Les données sont récupéré depuis un tableau, j'ai conçu le dashboard pour que toutes les données affichées (label de menu (All deals, Completed etc..) et les données produits puissent venir d'une base de données
+Le nombre d'items de chaque status est automatiquement calculés
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### Recherche fonctionnelle
 
-## Customize configuration
+La barre de recherche fonctionne, pour focus pour vous pouvez utiliser le raccourci clavier CTRL + K (que j'ai volontairement inversé avec la barre de recherche de gauche)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Comportement "logique" de checkbox
 
-## Project Setup
+On peut sélectionner tous les items, choisir d'en désélectionner quelques-uns
 
-```sh
-bun install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
-bun dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-bun build
-```
+## Les liens importants
+- Le challenge : https://www.spikes-challenges.fr/challenges/clw10jwrs0003disxzefzazde
+- La démonstration : https://spike.dashboard.charly-e.com
