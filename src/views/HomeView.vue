@@ -230,7 +230,7 @@ const checkedItems = ref([])
  * @param statue
  */
 
-const displayStatus = (statue) => {
+const displayStatus = (statue: string) => {
      switch (statue) {
           case "completed":
                return "Completed"
@@ -253,7 +253,7 @@ const displayStatus = (statue) => {
  * @param statue
  */
 
-const displayColorStatus = (statue) => {
+const displayColorStatus = (statue: string) => {
      switch (statue) {
           case "completed":
                return "bg-blue-500"
@@ -276,7 +276,7 @@ const displayColorStatus = (statue) => {
  * @param company
  */
 
-const displayCompanyName = (company) => {
+const displayCompanyName = (company: string) => {
      switch (company) {
           case "stripe":
                return "Stripe Inc."
@@ -306,7 +306,7 @@ const displayCompanyName = (company) => {
  *
  * @param company
  */
-const displayCompanyIcon = (company) => {
+const displayCompanyIcon = (company: string) => {
      switch (company) {
           case "stripe":
                return "/images/stripe.png"
@@ -333,7 +333,7 @@ const displayCompanyIcon = (company) => {
  *
  * @param statue
  */
-const filterItems = (statue) => {
+const filterItems = (statue: string) => {
      currentStatue.value = statue
      if (statue === "all") {
           filteredProducts.value = products.value
@@ -347,7 +347,7 @@ const filterItems = (statue) => {
  *
  * @param statue
  */
-const countItemsStatus = (statue) => {
+const countItemsStatus = (statue: string) => {
      if (statue === "all") return products.value.length
      return products.value.filter((product) => product.status === statue).length
 }
@@ -371,7 +371,7 @@ const checkAllItems = () => {
  * @param id
  */
 
-const checkItem = (id) => {
+const checkItem = (id: number) => {
      const index = checkedItems.value.indexOf(id)
 
      console.log(checkedItems.value, id, index)
@@ -385,16 +385,13 @@ const checkItem = (id) => {
 
 console.log(checkedItems.value)
 
-const isChecked = (id) => {
+const isChecked = (id: number) => {
      if (checkedItems.value.includes(id)) return true
 }
 
-const detectKeyboardShortcut = (event) => {
-     // CTRL + K
-
-     if (event.ctrlKey && event.key === "k") {
-          search.value = ""
-          document.querySelector("#search_object").focus()
+const detectKeyboardShortcut = (event: KeyboardEvent) => {
+     if ((event.ctrlKey && event.key === "k") || (event.metaKey && event.key === "k")) {
+          document.getElementById("search_object").focus()
      }
 }
 
@@ -403,11 +400,11 @@ window.addEventListener("keydown", detectKeyboardShortcut)
 /**
  * Watch the search input and filter the products based on the search value
  */
-watch(search, (value) => {
-     if (value === "") {
+watch(search, (searchTerm: string) => {
+     if (searchTerm === "") {
           filteredProducts.value = products.value
      } else {
-          filteredProducts.value = products.value.filter((product) => product.object.toLowerCase().includes(value.toLowerCase()))
+          filteredProducts.value = products.value.filter((product) => product.object.toLowerCase().includes(searchTerm.toLowerCase()))
      }
 })
 </script>
