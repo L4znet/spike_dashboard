@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.debug{
+    border:2px solid lime;
+}
+
+.debug-red{
+    border:2px solid red;
+}
